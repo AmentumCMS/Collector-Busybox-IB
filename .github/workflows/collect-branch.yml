@@ -125,7 +125,7 @@ jobs:
         run: |
           ls -al ..
           tar -cvC .. \
-            -f ${{ vars.COLLECTOR }}-code-${{ needs.Date.outputs.Date }}.tgz * \
+            -f ${{ vars.COLLECTOR }}-code-${{ needs.Date.outputs.Date }}.tgz ${{ github.WORKSPACE }} \
             | tee ${{ vars.COLLECTOR }}-code-${{ needs.Date.outputs.Date }}.tgz.txt
 
       - name: Generate TARchive Hash
