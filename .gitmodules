@@ -1,0 +1,6 @@
+[submodule "docker-library-busybox-source"]
+	path = docker-library-busybox-source
+	url = https://github.com/docker-library/busybox.git
+[submodule "alpine-ib-source"]
+	path = alpine-ib-source
+	url = https://repo1.dso.mil/dsop/opensource/alpinelinux/alpine.git
