@@ -66,8 +66,8 @@ jobs:
 
       - name: Generate Hash
         run: |
-          sha256sum -b ${{ vars.COLLECTOR }}-${{ needs.Date.outputs.Date }}.tgz | tee \
-            ${{ vars.COLLECTOR }}-${{ needs.Date.outputs.Date }}.tgz.sha
+          sha256sum -b ${{ vars.COLLECTOR }}-${{ needs.Date.outputs.Date }}.tgz \
+          | tee ${{ vars.COLLECTOR }}-${{ needs.Date.outputs.Date }}.tgz.sha
 
       - name: List files 
         run: ls -1sh ${{ vars.COLLECTOR }}-${{ needs.Date.outputs.Date }}.tgz*
@@ -116,7 +116,7 @@ jobs:
 
       - name: TARchive code base for ${{ vars.COLLECTOR }}
         run: |
-          tar -cvC .. \
+          tar -czvC .. \
             -f ${{ vars.COLLECTOR }}-code-${{ needs.Date.outputs.Date }}.tgz $(basename ${{ github.WORKSPACE }}) \
             | tee ${{ vars.COLLECTOR }}-code-${{ needs.Date.outputs.Date }}.tgz.txt
 
