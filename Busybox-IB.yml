@@ -1,7 +1,7 @@
 registry1.dso.mil:
     images-by-tag-regex:
         ironbank/frontiertechnology/cortex/busybox: ^v1.37.0$
-        chainguard/cgr.dev/chainguard/busybox: latest
+        chainguard/cgr.dev/chainguard/busybox: latest$
         ironbank/opensource/alpinelinux/alpine: ^3.21$
 docker.io:
     images-by-tag-regex:
