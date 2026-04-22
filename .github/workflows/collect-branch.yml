@@ -232,7 +232,9 @@ jobs:
           find "extracted/${{ vars.COLLECTOR }}" -type f -name manifest.json | while read -r manifest; do
             img_dir="$(dirname "$manifest")"
             rel="${img_dir#extracted/${{ vars.COLLECTOR }}/}"
-            safe="$(printf '%s' "$rel" | sed -E 's/[^A-Za-z0-9._-]+/_/g')"
+            safe="$(printf '%s' "$rel" | \
+                sed -E 's/[^A-Za-z0-9._-]+/_/g' | \
+                sed 's/^registry1.dso.mil_chainguard_cgr._//')"
             archive="scan-images/${safe}.tar"
 
             echo "Preparing archive from dir transport: $img_dir"
